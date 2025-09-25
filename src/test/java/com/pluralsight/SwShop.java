@@ -1,6 +1,5 @@
 package com.pluralsight;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class SwShop {
@@ -19,19 +18,28 @@ public class SwShop {
         else if (size == 2) {
             price = 8.95;
         }
+        else{
+            System.out.println("Invalid size");
+            scanner.close();
+            return;
+        }
 
         System.out.print("Enter your age: ");
+
+        double discount = 1.0;
 
         int age = scanner.nextInt();
 
         if (age <= 17){
-            price *= 0.90;
+            discount = 0.9;
         }
         else if (age >= 65) {
-            price *= 0.80;
+            discount = 0.8;
         }
 
-        System.out.printf("The cost of your sandwich is: $%.2f\n", price);
+        double finalPrice = price * discount;
+
+        System.out.printf("The cost of your sandwich is: $%.2f\n", finalPrice);
 
         scanner.close();
     }
